@@ -68,14 +68,12 @@ namespace IdentityServer4.Test
                 Claims =
                 {
                     new Claim(JwtClaimTypes.Name, getUserByusername.Name),
-                    //new Claim(JwtClaimTypes.GivenName, getUserByusername.GivenName),
-                    //new Claim(JwtClaimTypes.FamilyName, getUserByusername.FamilyName),
+                    new Claim(JwtClaimTypes.GivenName, getUserByusername.GivenName),
+                    new Claim(JwtClaimTypes.FamilyName, getUserByusername.FamilyName),
                     new Claim(JwtClaimTypes.Email, getUserByusername.Email),
                     new Claim(JwtClaimTypes.EmailVerified, getUserByusername.EmailVerified.ToString(), ClaimValueTypes.Boolean),
                     new Claim(JwtClaimTypes.WebSite, getUserByusername.WebSite),
-                    new Claim(JwtClaimTypes.Address, getUserByusername.Address),
-                    new Claim(JwtClaimTypes.PhoneNumber, getUserByusername.PhoneNumber),
-                    new Claim(JwtClaimTypes.BirthDate, getUserByusername.DateOfBirth),
+                    new Claim(JwtClaimTypes.Address, getUserByusername.Address)
                 }
             };
             return user;

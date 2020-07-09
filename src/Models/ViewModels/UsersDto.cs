@@ -11,14 +11,12 @@ namespace IdentityServer4.Models.ViewModels
             Username = users.Username;
             Password = users.Password;
             Name = users.Name;
-            //GivenName = users.GivenName;
-            //FamilyName = users.FamilyName;
+            GivenName = users.GivenName;
+            FamilyName = users.FamilyName;
             Email = users.Email;
             EmailVerified = users.EmailVerified;
             WebSite = users.WebSite;
             Address = users.Address;
-            PhoneNumber = users.PhoneNumber;
-            DateOfBirth = users.DateOfBirth;
         }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -29,7 +27,5 @@ namespace IdentityServer4.Models.ViewModels
         public bool EmailVerified { get; set; }
         public string WebSite { get; set; }
         public string Address { get; set; }
-        public string PhoneNumber { get; set; }
-        public string DateOfBirth { get; set; }
     }
 }

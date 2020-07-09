@@ -53,14 +53,12 @@ namespace IdentityServer4.Serivces
                 Claims =
                 {
                     new Claim(JwtClaimTypes.Name, getUserByusername.Name),
-                    //new Claim(JwtClaimTypes.GivenName, getUserByusername.GivenName),
-                    //new Claim(JwtClaimTypes.FamilyName, getUserByusername.FamilyName),
+                    new Claim(JwtClaimTypes.GivenName, getUserByusername.GivenName),
+                    new Claim(JwtClaimTypes.FamilyName, getUserByusername.FamilyName),
                     new Claim(JwtClaimTypes.Email, getUserByusername.Email),
                     new Claim(JwtClaimTypes.EmailVerified, getUserByusername.EmailVerified.ToString(), ClaimValueTypes.Boolean),
                     new Claim(JwtClaimTypes.WebSite, getUserByusername.WebSite),
-                    new Claim(JwtClaimTypes.Address, getUserByusername.Address),
-                    new Claim(JwtClaimTypes.PhoneNumber, getUserByusername.PhoneNumber),
-                    new Claim(JwtClaimTypes.BirthDate, getUserByusername.DateOfBirth)       
+                    new Claim(JwtClaimTypes.Address, getUserByusername.Address)
                 }
             };
             return user;
@@ -80,14 +78,12 @@ namespace IdentityServer4.Serivces
                     Claims =
                 {
                     new Claim(JwtClaimTypes.Name, getUserByusername.Name),
-                    //new Claim(JwtClaimTypes.GivenName, getUserByusername.GivenName),
-                    //new Claim(JwtClaimTypes.FamilyName, getUserByusername.FamilyName),
+                    new Claim(JwtClaimTypes.GivenName, getUserByusername.GivenName),
+                    new Claim(JwtClaimTypes.FamilyName, getUserByusername.FamilyName),
                     new Claim(JwtClaimTypes.Email, getUserByusername.Email),
                     new Claim(JwtClaimTypes.EmailVerified, getUserByusername.EmailVerified.ToString(), ClaimValueTypes.Boolean),
                     new Claim(JwtClaimTypes.WebSite, getUserByusername.WebSite),
-                    new Claim(JwtClaimTypes.Address, getUserByusername.Address),
-                    new Claim(JwtClaimTypes.PhoneNumber, getUserByusername.PhoneNumber),
-                    new Claim(JwtClaimTypes.BirthDate, getUserByusername.DateOfBirth)
+                    new Claim(JwtClaimTypes.Address, getUserByusername.Address)
                 }
                 };
 
@@ -139,16 +135,14 @@ namespace IdentityServer4.Serivces
                     Username = userForm.Username,
                     Password = userForm.Password,
                     Name = userForm.Name,
-                    //GivenName = userForm.GivenName,
-                    //FamilyName = userForm.FamilyName,
+                    GivenName = userForm.GivenName,
+                    FamilyName = userForm.FamilyName,
                     Email = userForm.Email,
                     EmailVerified = userForm.EmailVerified,
                     WebSite = userForm.WebSite,
-                    Address = userForm.Address,
-                    PhoneNumber = userForm.PhoneNumber,
-                    DateOfBirth = userForm.DateOfBirth
+                    Address = userForm.Address
                 };
-    
+
                 var result = await _dbContext.Set<Users>().AddAsync(user);
                 await _dbContext.SaveChangesAsync();
                 userForm.Id = user.Id.ToString();
@@ -175,14 +169,12 @@ namespace IdentityServer4.Serivces
             getUser.Username = userForm.Username;
             getUser.Password = userForm.Password;
             getUser.Name = userForm.Name;
-            //getUser.GivenName = userForm.GivenName;
-            //getUser.FamilyName = userForm.FamilyName;
+            getUser.GivenName = userForm.GivenName;
+            getUser.FamilyName = userForm.FamilyName;
             getUser.Email = userForm.Email;
             getUser.EmailVerified = userForm.EmailVerified;
             getUser.WebSite = userForm.WebSite;
             getUser.Address = userForm.Address;
-            getUser.PhoneNumber = userForm.PhoneNumber;
-            getUser.DateOfBirth = userForm.DateOfBirth;
 
             _dbContext.Set<Users>().Update(getUser);
             await _dbContext.SaveChangesAsync();
